@@ -10,7 +10,7 @@ The workflow is structured as follows.
 The _master_call.do file calls all other files. Running this generates all output. No need to run other files.
 Depending on your Stata configuration, you might need to install packages/ado files that are used in the programs (lines 5-15). 
 You need to set the full path to a folder on your machine where you want the project to live (lines 15-25).
-From there, the rest is just watching.
+From there, the rest is just watching everything unfold.
 
 The COVID data at ECDC is updated daily at 13:00 CET. Before that time, you need to call yesterday's date instead.
 
