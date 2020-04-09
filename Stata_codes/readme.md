@@ -32,5 +32,12 @@ Here's a short description of each task.
   
   Here's a [great video](https://www.youtube.com/watch?v=ZSunU9GQdcI) by Patrick Ball on organizing code workflow into tasks.
   
+### 3. Data sources
+
+Detailed COVID data for Belgium from [Epistat](https://epistat.wiv-isp.be/covid/).
+Vector maps for Belgium from [geo.be](geo.be).
+Life tables for Belgium from [Statbel](https://statbel.fgov.be/sites/default/files/files/documents/bevolking/5.4%20Sterfte%2C%20levensverwachting%20en%20doodsoorzaken/5.4.3%20Sterftetafels%20en%20levensverwachting/sterftetafelsAE.xls).
+COVID data by country around the world from [ECDC](https://qap.ecdc.europa.eu/public/extensions/COVID-19/COVID-19.html).
+Country population data from [UN World population prospects](https://population.un.org/wpp/Download/Standard/Population/).
 Thanks,
 Glenn
