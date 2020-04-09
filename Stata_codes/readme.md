@@ -12,7 +12,7 @@ Depending on your Stata configuration, you might need to install packages/ado fi
 You need to set the full path to a folder on your machine where you want the project to live (lines 15-25).
 From there, the rest is just watching everything unfold.
 
-The COVID data at ECDC is updated daily at 13:00 CET. Before that time, you need to call yesterday's date instead.
+The COVID data at ECDC is updated daily at 13:00 CET. Before that time, you need to call yesterday's date instead. For now, I have just added that option commented out in task1/src/1. ECDC_cases.do.
 
 ### 2. Tasks
 
