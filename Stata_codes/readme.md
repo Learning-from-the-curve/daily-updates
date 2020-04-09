@@ -32,3 +32,5 @@ Here's a short description of each task.
   
   Here's a [great video](https://www.youtube.com/watch?v=ZSunU9GQdcI) by Patrick Ball on organizing code workflow into tasks.
   
+Thanks,
+Glenn
