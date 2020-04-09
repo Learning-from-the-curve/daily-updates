@@ -1,4 +1,4 @@
-# Description of Stata code and workflow.
+## Description of Stata code and workflow
 
 This folder contains the Stata code to generate the graphs and numbers in the daily reports. 
 Everything here is unsupported unless otherwise stated. Use at your own risk.
