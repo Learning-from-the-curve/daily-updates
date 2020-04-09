@@ -26,8 +26,8 @@ Here's a short description of each task.
   - Task 1, imports: calls all datasets online and saves them locally.
   - Task 2, functions: contains functions (Stata programs) I wrote to create the graphs.
   - Task 3, macros: generates all numbers that change daily in the report. The report is written in markdown, and calls these values.
-  - Task 4, Belgium: runs all analysis for Belgium
-  - Task 5, world: runs all analysis for the world
+  - Task 4, Belgium: runs all analysis for Belgium.
+  - Task 5, world: runs all analysis for the world.
   - Task6, EU: same, but for EU28 countries.
   
   Here's a [great video](https://www.youtube.com/watch?v=ZSunU9GQdcI) by Patrick Ball on organizing code workflow into tasks.
