@@ -94,9 +94,12 @@ use "$task1/output/covid_cases_bycountry", clear
 * 6. average infection rate EU28	
 *-------------------------------
 use "$task1/output/covid_cases_bycountry", clear
+	qui su date
+	local last_date = r(max)
+	keep if date == `last_date'
+	keep if EU28 == 1
 	merge m:1 country using "$task1/output/world_population_2020", ///
 	nogen keep(match) keepusing(population)
-	keep if EU28 == 1
 	collapse (sum) cum_cases cum_deaths population
 
 	local sh_cases = round(cum_cases/population*100, .0001)

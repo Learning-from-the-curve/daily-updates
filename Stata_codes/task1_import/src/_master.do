@@ -19,7 +19,8 @@ foreach dir in input src output tmp {
 	do "./src/1. ECDC_cases.do" 					
 	do "./src/2. population.do" 
 	do "./src/3. Belgium_data.do" 
-
+	do "./src/4. Oxford_policies.do" 
+	
 // maintenance
 cap !rm -rf "./tmp"									// Linux/Mac
 cap !rmdir /q /s "./tmp"							// Windows		

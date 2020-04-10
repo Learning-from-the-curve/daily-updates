@@ -3,6 +3,7 @@
 * Author: Glenn Magerman
 
 /* latest updates
+- ECDC renamed Czech Republic to Czechia, rename back to match other data (April 10, 2020)
 - auto call data from website (March 28, 2020)
 - update code to reflect changed structure excel files (March 28, 2020)
 */
@@ -51,6 +52,7 @@ import excel "https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-
 	replace country = "USA" if country == "United_States_of_America"
 	replace country = subinstr(country, "_", " ", .)
 	replace country = "SouthKorea" if country == "South Korea"
+	replace country = "Czech Repulbic" if country =="Czechia"
 	
 // panel dimension
 	encode country, gen(cty)
@@ -69,7 +71,7 @@ import excel "https://www.ecdc.europa.eu/sites/default/files/documents/COVID-19-
 	gen EU28 = 0
 	replace EU28 = 1 if country == "Austria" | country == "Belgium" | ///
 	country == "Bulgaria" | country == "Croatia" | country == "Cyprus" | ///
-	country == "Czech Republic" | country == "Denmark" | country == "Estonia" | ///
+	country == "Czech Repulbic" | country == "Denmark" | country == "Estonia" | ///
 	country == "Finland" | country == "France" | country == "Germany" | ///
 	country == "Greece" | country == "Hungary" | country == "Ireland" | ///
 	country == "Italy" | country == "Latvia" | country == "Lithuania" | ///

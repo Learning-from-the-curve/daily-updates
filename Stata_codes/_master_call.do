@@ -6,7 +6,7 @@
 // install uncluttered from: https://github.com/graykimbrough/uncluttered-stata-graphs
 // install pandoc from: https://pandoc.org/installing 
 /* install from ssc
-foreach package in blindschemes markstat spmap shp2dta mif2dta egenmore svmachines carryforward {
+foreach package in blindschemes markstat spmap shp2dta mif2dta egenmore {
 	cap which `package'
 	if _rc == 111 ssc install `package'
 }	
