@@ -1,0 +1,148 @@
+---
+title: "COVID-19 - Daily update world, EU28, Belgium"
+author: [Federico Gallina](https://www.ulb.be/fr/federico-gallina), [ECARES, ULB](https://ecares.ulb.be),  [Glenn Magerman (ECARES, ULB)](http://www.glennmagerman.com), [ECARES, ULB] and  and the [Learning from the curve](https://github.com/Learning-from-the-curve) team.
+date: `s c(current_date)`
+---
+
+## 1. Introduction
+
+This article presents daily numbers and insights on COVID infections. It analyzes the number of cases and deaths for the most infected countries in the world and the EU, and then presents more detailed statistics for Belgium. The report is updated every day at 13:30 CET.
+
+Here are the key numbers, as of {{current_date}},:
+
+Global: There are `s ${global_cumcases}` total cases (an increase of `s ${global_newcases}`  cases since yesterday), and `s ${global_cumdeaths}` deaths (an increase of `s ${global_newdeaths}` ) in `s ${global_cumcountries}` countries with reported COVID-19 cases.
+
+EU28: There are {{EU_totals}} total cases (an increase of {{XXXX}} cases since yesterday), and {{see EU_totals}} deaths (an increase of {{XXXX}}).
+
+Belgium: There are {{Belgium totals}} confirmed cases (an increase of {{XXXX}} cases since yesterday), and {{see EU_totals}} deaths (an increase of {{XXXX}}).
+
+
+**Data sources:** 
+- COVID data by country around the world from [ECDC](https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide).
+- Country population data comes from [UN](https://population.un.org/wpp/Download/Standard/CSV). 
+- Detailed COVID data for Belgium from [Epistat](https://epistat.wiv-isp.be/covid/). 
+- Vector maps for Belgium from [geo.be](geo.be).
+
+
+**Note 1**: We report statistics based on the number of confirmed COVID cases and deaths. These world-wide daily numbers are fantastic. However, they are also not perfect. 
+First, the number of infected people is certainly higher than reported. One reason is that not everyone is, nor can be, tested in every country. Specialists estimate the "dark number" (the real number of infected people not captured in the statistics) to be 10 or 100 times larger than recorded. 
+Second, there are cross-country differences in the number of cases due to differences in testing policies. Some countries have implemented aggressive testing, random sampling, blood tests, while others only test hospitalized people and/or with severe symptoms. This naturally raises confirmed cases for the countries that test more extensively. 
+Third, the number of cases does not convey the severity of the disease by case. 
+Finally, for deaths, there can be over-reporting (comorbidity as cause of death, or other mortalities statistically allocated to COVID mortality), underreporting (no confirmed COVID diagnosis or deaths outside hospitals (e.g. in retirement homes or at home) not counted) and lagged reporting (how long does it take for the numbers to go into the statistics?). There can be a [large amount of heterogeneity in this under/over-reporting](https://www.bbc.com/future/article/20200401-coronavirus-why-death-and-mortality-rates-differ) across countries. We take these numbers and these cautions as given.
+
+**Note 2**: This article is of a  descriptive nature: it does not make any policy statements, nor does it attempt to measure the impact of earlier policy measures. Please see [Learning from the curve](https://github.com/Learning-from-the-curve) for other initiatives in those directions.
+
+**Note 3**: Analysis will be evolving as the project continues. Any feedback, suggestions, critiques, are highly welcomed.
+
+
+
+## 2. Global overview
+
+
+### 2.1 Number of cases
+Figure 1 shows the total number of cases by date for the 10 most infected countries in the world. This is a snapshot of the severity of the outbreak across countries by date.
+While China has been stabilizing since the end of February, many countries are still facing the onset of the pandemic in their country. The country with the most cases is `s ${n1_country_cumcases_global}`, with `s ${n1_cumcases_global}` total confirmed cases. 
+Second is `s ${n2_country_cumcases_global}`, with `s ${n2_cumcases_global}` confirmed cases, and `s ${n3_country_cumcases_global}` follows, with `s ${n3_cumcases_global}` cases.
+
+<div align="center"> 
+![Figure 1: Total cases by date, global top 10.](global_top10_cumcases_bydate.svg){width=75%}
+<div align="left">
+
+
+[[[[Of een land nu veel of weinig inwoners heeft: als een epidemie met een gelijk aantal gevallen start, is het aantal dode­lijke slachtoffers per dag in het ­begin van de uitbraak hetzelfde.Hoe later in de uitbraak, hoe relevanter het wordt om de dodentol in elk land wél per capita te vergelijken.]]]]
+[[[[ more importantly is timing & correcting for onset date ]]]]
+[[[[ not every country is or has to be on the same track: (i) social distance and stay home policies, (ii) population density, traveling & connectivity]]]]
+
+Next, Figure 2 shows the total number of cases per million inhabitants, since the 100th case per million inhabitants for these top 10 countries. The graph differs from the first figure in two ways. First, it accounts for population size. While absolute numbers are a key statistic in the onset of the epidemic, and they relate to the expected number of people infected from one patient (or the basic reproduction number [R naught](https://triplebyte.com/blog/modeling-infectious-diseases) and later reproduction number R), as the epidemic evolves and reaches a steady state, a particular fraction of the population will be infected. E.g. Belgium can simply never reach the same theoretical maximum number of infected people as the USA.[^1] 
+
+[^1]: We could also aggregate all countries in the EU to compare against the USA and China. Additionally, there might be within-country regional differences that affect both absolute and relative numbers (e.g. China is not affected homogeneously in all provinces).
+ 
+Second, the figure plots the number of cases since the 100th case per million, instead of calendar days. This allows to compare growth rates of the epidemic across countries, accounting for differences in timing of the onset of the epidemic across countries.
+
+As of today, {{n1_country_share_infected_global }} has {{n`i'_share_infected_global}} % of its population officially infected. This is still far off the estimates of 30-70% of world population ultimately being infected. There can be at least three reasons: (i) real infection rates are orders of magnitude larger than reported ones, (ii) the epidemic is only in its onset, (iii) we are reaching the end of the epidemic, and infection rates are lower than previously projected. Given the growth rates discussed below, we believe (iii) is not plausible at this moment.
+
+<div align="center"> 
+![Figure 2: Total cases since 100th case, per million inhabitants, global top 10.](global_top10_cumcasesperMln_post100perMln.svg){width=75%}
+<div align="left">
+
+Next, Figure 3 shows the growth rate of the number of cases, since the 100th case for the top 10 infected countries. Growth is expressed as the percentage growth rate of the total number of cases from date t-1 to t.[^2] 
+[^2]: This growth rate is identical to one calculated as cases per million inhabitants as we divide both numerator and denominator by population per million.
+
+We take the 3-day simple moving average to account for strong fluctuations from e.g. reporting lags. Every country wants to see this growth rate going to zero as soon as possible. China has officially reached that state. Other countries still see growth rates of 10-30% per day. 
+
+Two things stand out. First, the slopes, or decreases in growth rates, are not the same across countries. This implies some countries will get to zero growth faster than others. Second, even smoothed by a moving average, these growth rates are not monotonically decreasing. This might be due to temporal outbursts of the virus within countries, or partially due to increased testing policies. 
+
+<div align="center"> 
+![Figure 3: Growth rate cases, since 100th case, global top 10.](global_top${top_world}_ma3cases_post100.svg){width=75%}
+<div align="left">
+
+
+### 2.2 Number of deaths
+As noted in the introduction, the number of cases is prone to several sources of non-random measurement error. While measurement error also exists for the number of deaths, this number draws a clearer picture. It also captures the severity of the epidemic. Furthermore, some hypotheses described above using case data might turn out to be less plausible than others.
+
+Figure 4 shows the total number of deads for the top 10 countries with the deadliest outbreak by date. Since the second half of February, China has been overtaken by Italy and Spain. Since April 1, the USA is the country with the third highest number of deaths due to COVID. 
+As of today, the country with the most deaths is {{n1_cumdeaths_country}}, with {{n1_cumdeaths}} deaths.  Second is {{n2_cumdeaths_country}}, with {{n2_cumdeaths}} deaths, and {{n3_cumdeaths_country}} follows, with {{n3_cumdeaths}} deaths.
+
+<div align="center"> 
+![Figure 4: Total deaths by date, global top 10.](global_top${top_world}_cumdeaths_bydate.svg){width=75%}
+<div align="left">
+
+Accounting for population size, Figure 5 shows the total number of deaths per million inhabitants, since the 10th death per million, and this for the top 10 deadliest countries. As before, this graph presents the share of population deceased instead of absolute numbers, and it aligns the evolution of mortality across countries' different epidemic onset times. Here, most countries are on an even worse trajectory than Italy.
+
+<div align="center"> 
+![Figure 5: Total deaths since 10th death, per million inhabitants, global top 10.](global_top10_cumdeathsperMln_post10perMln.svg){width=75%}
+<div align="left">
+
+Finally, Figure 6 shows the growth rate of the number of deaths, since the 10th case. Again, China has officially reached (close to) zero growth rate. If we can extrapolate these curves, Iran might reach its end of the epidemic at around day 80, or roughly 40 days from now. Italy follows later, while Spain might do better. Unfortunately, the USA still faces growth rates of the number of deaths between 20 and 30%, with no significant signs of the growth rates decreasing at the moment.
+
+<div align="center"> 
+![Figure 6: Growth rate deaths, since 10th death, global top 10.](global_top10_ma3deaths_post10.svg){width=75%}
+<div align="left">
+
+## 3. EU28 overview
+
+We repeat the same analysis for the EU28 countries, and highlight the top 10 countries within the EU28.
+As of today, there are {{ncases_EU28}} confirmed cases in the EU28, and {{ndeaths_EU28}} deaths.
+
+### 3.1 Number of cases, EU28
+Figure 7 shows the total number of cases by date for the 10 most infected countries in the EU28.
+The EU28 country with the most cases is {{n1_cumcases_EU}}, with {{n1_cumcases_EU}} total confirmed cases. Second is {{n2_cumcases_EU}}, with {{n2_cumcases_EU}} confirmed cases, and {{n3_cumcases_EU}} follows, with {{n3_cumcases_EU}} cases.
+
+<div align="center"> 
+![Figure 7: Total cases by date, EU28 top 10.](EU_top10_cumcases_bydate.svg){width=75%}
+<div align="left">
+
+Next, Figure 8 shows the total number of cases per million inhabitants, since the 100th case per million inhabitants for these most infected EU28 countries. Again, some countries are on a steeper path than Italy. As of today, {{n1_country_share_infected_EU}} has {{n`i'_share_infected_EU}} % of its population officially infected. 
+
+<div align="center"> 
+![Figure 8: Total cases since 100th case, per million inhabitants, EU28 top 10.](EU_top10_cumcasesperMln_post100perMln.svg){width=75%}
+<div align="left">
+
+Next, Figure 9 shows the growth rate of the number of cases, since the 100th case for the top 10 infected countries in the EU. Growth rates are roughly between 5% and 20% as of today.
+
+<div align="center"> 
+![Figure 9: Growth rate cases, since 100th case, EU28 top 10.](EU_top10_ma3cases_post100.svg){width=75%}
+<div align="left">
+
+### 3.2 Number of deaths, EU28
+Finally, we turn to the number of deaths for the top 10 EU28 countries.
+
+Figure 10 shows the total number of deads for the top 10 EU28 countries with the deadliest outbreak by date. As of today, the country with the most deaths is {{n1_cumdeaths_EU}}, with {{n1_cumdeaths_EU}} deaths.  Second is {{n2_cumdeaths_EU}}, with {{n2_cumdeaths_EU}} deaths, and {{n3_cumdeaths_EU}} follows, with {{n3_cumdeaths_EU}} deaths.
+
+<div align="center"> 
+![Figure 10: Total deaths by date, EU28 top 10.](EU_top10_cumdeaths_bydate.svg){width=75%}
+<div align="left">
+
+Accounting for population size, Figure 11 shows the total number of deaths per million inhabitants, since the 10th death per million, and this for the top 10 deadliest EU28 countries. As before, this graph presents the share of population deceased instead of absolute numbers, and it aligns the evolution of mortality across countries' different epidemic onset times. Again, also in the EU, most countries are on an even worse trajectory than Italy.
+
+<div align="center"> 
+![Figure 11: Total deaths since 10th death, per million inhabitants, EU28 top 10.](EU_top10_cumdeathsperMln_post10perMln.svg){width=75%}
+<div align="left">
+
+Finally, Figure 12 shows the growth rate of the number of deaths, since the 10th case. These growth rates suggest that most countries are still in the onset part of the epidemic.
+
+<div align="center"> 
+![Figure 12: Growth rate deaths, since 10th death, EU28 top 10.](EU_top10_ma3deaths_post10.svg){width=75%}
+<div align="left">
+
+
