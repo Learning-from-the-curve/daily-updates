@@ -17,11 +17,11 @@ clear all
 macro drop _all
 qui di c(os)
 if c(os) == "MacOSX" {
-	global folder	"~/Dropbox/work/research/COVID19/projects/daily_updates/tasks"
+	global folder	"~/Dropbox/work/research/COVID19/projects/daily-updates/Stata_codes/tasks"
 }
 
 else if c(os) == "Unix"	{
-	global folder "/home/gmagerman/research/projects/COVID19/projects/daily_updates/tasks"
+	global folder "/home/gmagerman/research/projects/COVID19/projects/daily-updates/tasks"
 }	
 	
 cd "$folder"
