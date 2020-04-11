@@ -6,6 +6,7 @@
 * 1. National, over time
 *-----------------------
 // collect datasets: daily numbers national level
+// these are lagging in many cases, use latest available data
 tempfile cases hosp
 use "$task1/output/Belgium_CASES_AGESEX", clear
 	collapse (sum) cases, by(date)
