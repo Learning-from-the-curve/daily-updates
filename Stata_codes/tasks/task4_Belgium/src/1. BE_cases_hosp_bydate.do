@@ -10,6 +10,7 @@
 tempfile cases hosp
 use "$task1/output/Belgium_CASES_AGESEX", clear
 	collapse (sum) cases, by(date)
+	replace cases = 0 if missing(cases)
 	gen total_cases = sum(cases)
 	drop cases
 save `cases'

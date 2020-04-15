@@ -59,6 +59,7 @@ use "./tmp/epicurve_Belgium", clear
 	macro drop _line
 	graph export "./output/BE_epicurve_cases.svg", replace 
 	
+	
 *----------
 * 2. Deaths	
 *----------
