@@ -10,8 +10,8 @@ use "$task1/output/covid_cases_bycountry", clear
 	
 // graph
 	tsplot_date cum_deaths cum_deaths
-	graph export "./output/global_cumdeaths_bydate.svg", replace 
-	
+	graph export "./output/global_cumdeaths_bydate.svg", replace 	
+	graph export "./output/global_cumdeaths_bydate.png", replace 
 *---------------------------------
 * 2. Total deaths by date of onset
 *---------------------------------
@@ -27,6 +27,7 @@ use "$task1/output/covid_cases_bycountry", clear
 	label var event_time "Days since 10th death"
 	tsplot_logs_deaths lncum_deaths lncum_deaths 
 	graph export "./output/global_lncumdeaths_post10.svg", replace 
+	graph export "./output/global_lncumdeaths_post10.png", replace 
 	
 *----------------------------------------
 * 3. Growth rate deaths, since 10th death

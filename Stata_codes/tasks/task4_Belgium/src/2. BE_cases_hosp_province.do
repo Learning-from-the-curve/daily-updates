@@ -35,7 +35,7 @@ use "$task1/output/Belgium_HOSP", clear
 	local last_date = r(max)
 	keep if date == `last_date'
 	*/
-	keep if date == 22018							// always lagging info
+	keep if date == 22021							// always lagging info
 	
 	graph bar total_cases total_in total_in_icu total_in_resp total_out, ///
 	over(province, label(angle(45))) ///

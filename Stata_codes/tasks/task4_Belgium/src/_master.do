@@ -21,6 +21,7 @@ foreach dir in input src output tmp {
 	do "./src/3. BE_city_maps.do"
 	do "./src/4. BE_epicurve.do"
 	do "./src/5. BE_CDF_lifetable.do"
+	do "./src/6. BE_excess_mortality.do"
 
 // maintenance
 cap !rm -rf "./tmp"									// Linux/Mac

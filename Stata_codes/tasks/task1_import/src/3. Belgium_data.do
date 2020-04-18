@@ -62,3 +62,13 @@ use "./tmp/BE_lifetable_1994", clear
 		append using  "./tmp/BE_lifetable_`t'"
 	}	
 save "./output/Belgium_lifetables", replace
+
+*-------------------------------
+* 4. mortality by day up to 2018 (Statbel)
+*-------------------------------
+import excel "https://statbel.fgov.be/sites/default/files/files/opendata/bevolking/TF_DEATHS.xlsx", clear firstrow
+	ren (DT_DATE MS_NUM_DEATHS) (date deaths) 
+save "./output/Belgium_deaths_bydate", replace	
+	
+	
+	

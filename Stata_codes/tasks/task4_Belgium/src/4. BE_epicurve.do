@@ -59,9 +59,49 @@ use "./tmp/epicurve_Belgium", clear
 	macro drop _line
 	graph export "./output/BE_epicurve_cases.svg", replace 
 	
+*-----------------------------
+* 3. Epicurve hospitalizations
+*-----------------------------	
+// use Belgium data
+use "$task1/output/Belgium_HOSP", clear
+	collapse (sum) new_in, by(date)
+	egen cum_hosp = total(new_in)
+
+// fraction of hospitalization out of total
+	gen share_hosp = new_in/cum_hosp*100
+	gen lnshare_hosp = ln(share_hosp)
+
+// moving average	
+	tsset date
+	egen lnma_share_hosp = filter(lnshare_hosp), lags(0/$MA) normalise	
+	*drop if share_hosp < 0.001	
+
+// event: highest daily share (MA) = top, and t=0 	
+	egen max = max(lnma_share_hosp)
+	gen top = (lnma_share_hosp == max)
+	gen count = _n
+	fcollapse (min) count, by(top) merge
+	egen offset = max(min_count)
+	gen event_time = count - offset
+	drop top count min_count max
+
+//sync events
+	tsset event_time
+	*drop if event_time < -40
+
+// graph (logs)
+	tsline lnma_share_hosp, recast(connected) lwidth(medthick)  ///
+	legend(on size(small)) ///
+	ysize(7) xsize(7) note("$ref_source" "$ref_data") ///
+	title("Epicurve hospitlizations", size(medium)) ///
+	ytitle("% of total hospitalizations (${MA}-day MA)") xtitle("Days relative to turning point") ///
+	ylab(-6.9 "10{sup:-3}" -4.6 "10{sup:-2}" -2.3 "10{sup:-1}" 0 "10{sup:0}" 2.3 "10{sup:1}")
+	macro drop _line
+	graph export "./output/BE_epicurve_hosp.svg", replace 
+	
 	
 *----------
-* 2. Deaths	
+* 4. Deaths	
 *----------
 use "$task1/output/covid_cases_bycountry", clear
 	keep if country =="Belgium" | country == "China"
