@@ -19,6 +19,7 @@ foreach dir in input src output tmp {
 	do "./src/2. global_deaths.do"
 	do "./src/3. global_epicurve.do"	
 	do "./src/4. global_ranklist.do"	
+	do "./src/5. policy measures.do"	
 	
 // maintenance
 cap !rm -rf "./tmp"									// Linux/Mac
